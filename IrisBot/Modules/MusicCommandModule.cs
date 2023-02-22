@@ -33,7 +33,6 @@ namespace IrisBot.Modules
 
         public Task InitializeAsync()
         {
-            _services.GetRequiredService<InactivityTrackingService>().InactivePlayer += Program_InactivePlayer;
             _audioService.TrackEnd += _audioService_TrackEnd;
             _audioService.TrackStarted += _audioService_TrackStarted;
             return Task.CompletedTask;
@@ -73,16 +72,6 @@ namespace IrisBot.Modules
             {
                 Translations lang = await TranslationLoader.FindGuildTranslationAsync(player.GuildId);
                 await player.Channel.SendMessageAsync(await TranslationLoader.GetTranslationAsync("track_end_no_queue", lang));
-            }
-        }
-
-        private async Task Program_InactivePlayer(object sender, InactivePlayerEventArgs eventArgs)
-        {
-            IrisPlayer? player = eventArgs.Player as IrisPlayer;
-            if (player?.Channel != null)
-            {
-                Translations lang = await TranslationLoader.FindGuildTranslationAsync(player.GuildId);
-                await player.Channel.SendMessageAsync(await TranslationLoader.GetTranslationAsync("inactivity_disconnect", lang));
             }
         }
 
