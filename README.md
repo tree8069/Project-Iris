@@ -2,9 +2,6 @@
 Open-sourced simple discord music bot based on [Discord.NET](https://github.com/discord-net/Discord.Net) &amp; [Lavalink4NET](https://github.com/angelobreuer/Lavalink4NET).
 Builded with .NET core 6.0.
 
-## ✉️ Invite link
-https://discord.com/oauth2/authorize?client_id=930387137436721172&permissions=551906445376&scope=bot
-
 ## 📋 Features
 - Play music from YouTube and SoundCloud
 - Various player features like pause & resume & seek to position & volume change (Due to Discord's bitrate is low so bigger value is not recommended).
